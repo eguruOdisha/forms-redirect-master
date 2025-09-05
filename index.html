@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Redirect Master</title>
+  <script>
+    // All 50 form links (replace FORM_LINK_X with your actual Google Form links)
+    const forms = {
+      1: "https://forms.gle/5HdvG26qmmdK1nUi9",
+      2: "https://forms.gle/EoEqFdExJDfjdVGy7",
+      3: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      4: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      5: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      6: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      7: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      8: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      9: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      10: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      11: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      12: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      13: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      14: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      15: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      16: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      17: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      18: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      19: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      20: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      21: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      22: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      23: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      24: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      25: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      26: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      27: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      28: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      29: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      30: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      31: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      32: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      33: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      34: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      35: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      36: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      37: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      38: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      39: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      40: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      41: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      42: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      43: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      44: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      45: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      46: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      47: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      48: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      49: "https://forms.gle/enNyhX5a5Qa8SWM26",
+      50: "https://forms.gle/enNyhX5a5Qa8SWM26"
+    };
+
+    const registrationPage = "https://sites.google.com/view/bhadrak-dhamnagar-batitanki/registration";
+
+    function getQueryParam(param) {
+      let urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    window.onload = function() {
+      let f = getQueryParam("f"); // form number
+      if (!f || !forms[f]) {
+        document.body.innerHTML = "<h2>Invalid form link</h2>";
+        return;
+      }
+
+      let key = "formVisited_" + f;  // unique key per form
+
+      if (localStorage.getItem(key)) {
+        window.location.href = registrationPage;
+      } else {
+        localStorage.setItem(key, "true");
+        window.location.href = forms[f];
+      }
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
